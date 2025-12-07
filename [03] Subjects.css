@@ -1,0 +1,470 @@
+.context{
+    width: 80vw;
+    margin: auto;
+    margin-bottom: 50px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+#context_title {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-size: 100px;
+  font-family: "Figtree", sans-serif;
+  font-weight: bolder;
+  letter-spacing: -3px;
+  background-image: radial-gradient(
+    circle at 30% 100%,
+    #4c85ff 0%,
+    #00154e 70%,
+    #000144 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  text-align: center;
+}
+
+.context p{
+    width: 70vw;
+    margin: auto;
+    text-align: center;
+    font-family: figtree;
+    color: #000144;
+    font-size: 16px;
+}
+
+#seperator {
+  width: 80vw;
+  margin: auto auto 50px;
+  height: 2px;
+  background-color: #000144;
+  border-radius: 20px;
+
+  animation: expandLine 0.3s ease-out forwards;
+}
+
+@keyframes expandLine {
+  0% {
+    width: 0;
+    transform: scaleX(0);
+  }
+  100% {
+    width: 80vw; /* Change this to your desired final width */
+    transform: scaleX(1);
+  }
+}
+
+
+.subject_categories{
+    display: flex;
+    margin: auto;
+    width: 80vw;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    font-family: figtree;
+
+}
+
+.subject_categories h1{
+    font-family: figtree;
+    font-weight: bolder;
+    padding: 10px 50px 0px 0px;
+    color: #000144;
+    margin: 0px;
+}
+.subject_categories li{
+  color: #000144;  
+  transition: ease 0.5s;    
+  font-size: 14px;
+  padding: 0px 0px 5px;
+}
+.subject_categories li:hover{
+    cursor: pointer;
+    font-weight: 600;
+}
+.subject_categories{
+  width: 100%;
+}
+
+.final_materials_content{
+  display: flex;
+  flex-direction: row;
+}
+
+/* --- Modal Background --- */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 9999; /* Keeps it above all other elements */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.6); /* Dim background */
+  backdrop-filter: blur(5px);
+}
+
+/* --- Modal Content --- */
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  margin: auto;
+  width: 95%; 
+  height: 95%;
+  border-radius: 30px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+#fileViewer {
+  width: 95%;
+  height: 95%;
+  border: none;
+  transform: scale(0.95);
+  transform-origin: center;
+}
+
+
+/* --- Controls Bar --- */
+.controls {
+  display: flex;
+  justify-content: end;
+  gap: 8px;
+  align-items: center;
+  background: #09003e;
+  color: white;
+  padding: 10px 16px;
+  font-size: 16px;
+}
+
+.controls button {
+  background-color: #ffffff;
+  color: #09003e;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.controls button:hover {
+  background-color: #3e3283;
+}
+
+#testBtn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#testBtn:hover {
+  background-color: rgb(98, 192, 101);
+}
+
+#closeBtn {
+  background-color: #e53935;
+  color: white;
+}
+
+#closeBtn:hover {
+  background-color: rgb(152, 38, 38);
+}
+
+.controls button{
+    background-color: #312769;
+    color: white;
+}
+/* --- Iframe Viewer --- */
+#fileViewer {
+  flex-grow: 1;
+  width: 100%;
+  border: none;
+}
+
+
+.filter_buttons {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.filter-btn {
+  font-size: 20px;
+  background-color: #202830e9;
+  border: none;
+  color: #ffffffc9;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  border-radius: 25px;
+  padding: 8px 20px;
+  margin: 5px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+.filter-btn:hover {
+  background-color: #2f3541e9;
+  color: white;
+}
+
+.filter-btn.active {
+  background-color: #00154e;
+  color: white;
+  box-shadow: inset 0 0 5px rgba(255,255,255,0.3);
+}
+
+
+.midterm_materials_content{
+  opacity: 0;
+  transform: translateX(-60px);
+  animation: slideInFromLeft 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+.final_materials_content{
+  opacity: 0;
+  transform: translateX(60px);
+  animation: slideInFromRight 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+.context,
+.filter_buttons{
+  opacity: 0;
+  transform: translateY(60px);
+  animation: slideInFromTop 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.1s;
+}
+
+.main_content{
+  opacity: 0;
+  transform: translateY(60px);
+  animation: slideInFromBottom 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.2s;
+}
+
+
+/* ------------------------------------- */
+/*  GLOBAL TYPOGRAPHY (Mobile-First Base)*/
+/* ------------------------------------- */
+
+#context_title {
+  margin-top: 40px;
+  margin-bottom: 10px;
+
+  /* Mobile Base Font Size */
+  font-size: 50px; 
+  font-family: "Figtree", sans-serif;
+  font-weight: bolder;
+  letter-spacing: -2px;
+  text-align: center;
+
+  background-image: radial-gradient(
+    circle at 30% 100%,
+    #4c85ff 0%,
+    #00154e 70%,
+    #000144 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.content {
+  width: 95vw; /* Slightly wider use of space on mobile */
+  margin: auto;
+}
+
+.content h1 {
+  font-family: "Figtree", sans-serif;
+  font-size: 24px; /* Mobile base H1 for steps */
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: #000144;
+}
+
+.step p, .step ul, .step li {
+    font-family: "Figtree", sans-serif;
+    font-size: 16px; /* Mobile base paragraph/list size */
+    text-align: left;
+    margin-bottom: 15px;
+    padding-left: 0;
+}
+
+/* ------------------------------------- */
+/*  MS OFFICE INSTALLATION SECTION       */
+/* ------------------------------------- */
+.ms_word_steps {
+  display: flex;
+  flex-wrap: nowrap;     /* Force horizontal scroll on mobile/tablet */
+  gap: 30px;
+  padding: 30px 20px;
+  overflow-x: auto;      /* Enables scrolling */
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory; /* Optional: improve step snapping on scroll */
+}
+
+.step {
+  /* Set fixed width for horizontal scrolling steps on mobile/tablet */
+  flex: 0 0 80vw; /* Take up 80% of viewport width */
+  max-width: 350px; 
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  scroll-snap-align: start;
+}
+
+.step h1 {
+    /* Reset text indent for mobile step titles */
+    text-indent: 0;
+}
+
+
+/* FIX: Image and Code Block Styling */
+.step .image {
+    width: 100%;
+    margin-top: auto; /* Push image to the bottom */
+}
+.step .image img {
+    /* Ensure image fits container without distortion */
+    width: 100%;
+    height: auto; /* Fix: Use auto to maintain aspect ratio */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.copy-script {
+    display: block; /* Make it a block element for better layout */
+    text-align: left;
+    word-break: break-all;
+}
+
+
+/* ------------------------------------- */
+/*  CTA BUTTON                           */
+/* ------------------------------------- */
+
+#call_to_action {
+  /* ... (Existing base styles) ... */
+  width: fit-content;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+
+  background-image: radial-gradient(
+    circle at 50% -50%,
+    #4c85ff 20%,
+    #00154e 80%
+  );
+  background-size: 300% 300%;
+  
+  transition: 
+    background-position 1s ease-in-out,
+    transform 0.3s ease;
+}
+
+#call_to_action a{
+  color: inherit;
+  text-decoration: none;
+  font-weight: 700;
+}
+#call_to_action a:visited{
+  color: inherit;
+}
+
+/* ──────────────────────────────────────────────────────────────
+    BREAKPOINT 1: TABLET / SMALL DESKTOP (min-width: 768px)
+────────────────────────────────────────────────────────────── */
+@media (min-width: 768px) {
+    #context_title {
+        font-size: 80px; /* Scale up title */
+        letter-spacing: -2.5px;
+    }
+    .content {
+        width: 90vw;
+        max-width: 1000px;
+    }
+    .content h1 {
+        font-size: 28px;
+    }
+    
+    /* Steps remain horizontal scroll but get slightly wider */
+    .ms_word_steps {
+        padding: 50px 30px;
+        gap: 40px;
+    }
+    .step {
+        flex: 0 0 45vw; /* Show about 2 steps */
+        max-width: 450px;
+        padding: 30px;
+    }
+
+    .step p, .step ul, .step li {
+        font-size: 18px;
+    }
+
+    #call_to_action {
+        padding: 18px 30px;
+        font-size: 18px;
+    }
+}
+
+
+/* ──────────────────────────────────────────────────────────────
+    BREAKPOINT 2: LARGE DESKTOP (min-width: 1024px)
+    Switch to a multi-column grid layout for steps.
+────────────────────────────────────────────────────────────── */
+@media (min-width: 1024px) {
+    #context_title {
+        font-size: 100px; /* Restore original large size */
+        letter-spacing: -3px;
+    }
+
+    .content {
+        width: 80vw;
+        max-width: 1200px;
+    }
+
+    .content h1 {
+        font-size: 30px;
+    }
+    
+    /* Switch to GRID for desktop view to display all steps in columns */
+    .ms_word_steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3-5 columns */
+        gap: 30px;
+        overflow-x: hidden; /* Disable scroll */
+        padding: 50px 0;
+    }
+
+    .step {
+        /* Remove fixed width and let grid handle sizing */
+        flex: initial;
+        max-width: none;
+        padding: 30px;
+    }
+
+    .step p, .step ul, .step li {
+        font-size: 16px; 
+    }
+
+    #call_to_action {
+        padding: 20px 40px;
+        font-size: 20px;
+    }
+}

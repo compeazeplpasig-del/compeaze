@@ -1,0 +1,406 @@
+/* ─────────────────────────────────────────────────────────────────────────────────────────────
+    GLOBAL STYLES & RESET (Mobile-First Base)
+───────────────────────────────────────────────────────────────────────────────────────────── */
+body {
+    margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll for now */
+    position: relative; 
+}
+
+/* Scrollbar styles remain the same */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #00154e;
+}
+::-webkit-scrollbar-thumb {
+    background: #ffffff27;
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────────────────────
+    HEADER & NAVIGATION BAR (Mobile Base)
+───────────────────────────────────────────────────────────────────────────────────────────── */
+header {
+    position: sticky;
+    top: 0;
+    width: fit-content;
+    padding: 15px 0 0;
+    z-index: 999;
+    margin: auto;
+}
+
+.navigation_bar {
+    /* Mobile styles: uses a percentage width, capped size */
+    width: fit-content; 
+    max-width: 450px; 
+    margin: auto;
+    padding: 10px ;
+    border-radius: 999px;
+
+    background-image: linear-gradient(#2e3036ce 50%, #262930b2 100%);
+    backdrop-filter: blur(20px);
+    box-shadow: inset 0.2px 0.2px 2px rgb(255, 255, 255);
+    z-index: 1;
+}
+
+.navigation_bar_content {
+    display: flex;
+    flex-wrap: nowrap; 
+    justify-content: center;
+    gap: 2px; /* Use small gap for mobile layout */
+}
+
+.navigation_bar_content button {
+    /* Mobile button sizing */
+    position: relative;
+    height: 30px; 
+    padding: 0 5px; 
+    border: none;
+    border-radius: 50px; /* Rounded buttons for mobile (can be adjusted) */
+
+    /* Default (inactive) appearance for mobile */
+    background-color: transparent;
+    color: #8c9093e9;
+    font-family: "Inter", sans-serif;
+    font-size: 14px; 
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+}
+
+.home_button,
+.help_button {
+    font-size: 18px; 
+}
+
+
+/* --- Hover, Active, and Highlight Styles (Mobile Base) --- */
+
+/* Regular hover style for buttons */
+.navigation_bar_content button:hover {
+    background-color: #2c2d2ee9;
+    color: white;
+    box-shadow: inset 0.5px 0.5px 2px rgba(255, 255, 255, 0.338);
+}
+/* Style for the permanently active button (e.g., Home) */
+.navigation_bar_content .active {
+    background-color: #27292c;
+    color: #ffffff;
+    box-shadow: inset 0.5px 0.5px 2px rgba(255, 255, 255, 0.338);
+}
+/* Style for the button when the highlight-header class is added (via JS) */
+.navigation_bar_content button.highlight-header { 
+    background-color: #27292c83 !important; /* This is the highlight background */
+    color: #ffffff;
+    box-shadow: inset 0.5px 0.5px 2px rgba(255, 255, 255, 0.338);
+}
+
+/* Base link color */
+.navigation_bar_content a {
+    color: #8c9093e9;
+    text-decoration: none;
+    transition: color 0.25s ease-in-out;
+}
+/* Link color on regular hover */
+.navigation_bar_content a:hover {
+    color: white;
+}
+/* Link color for active/highlighted states */
+.navigation_bar_content .active a,
+.navigation_bar_content button.highlight-header a {
+    color: #ffffff;
+}
+.navigation_bar_content a:visited {
+    color: inherit; 
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────────────────────
+    Tablet/Desktop (min-width: 768px) 
+───────────────────────────────────────────────────────────────────────────────────────────── */
+@media (min-width: 768px) {
+    .navigation_bar {
+        /* Restores original desktop settings */
+        width: fit-content; 
+        max-width: none;
+        padding: 10px 15px;
+    }
+    .navigation_bar_content {        
+        flex-wrap: nowrap; 
+        gap: 5px; 
+
+    }
+    .navigation_bar_content button {
+        /* Restores original desktop button size and style */
+        height: 35px; 
+        padding: 0 15px; 
+        font-size: 16px; 
+        border-radius: 50px;  
+
+        /* Default (inactive) appearance for mobile */
+        background-color: transparent;
+        color: #8c9093e9;
+        font-family: "Inter", sans-serif;
+        font-size: 14px; 
+        font-weight: 700;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.25s ease-in-out;
+    }
+
+    .home_button,
+    .help_button {
+        font-size: 22px; 
+    }
+
+    /* --- Hover, Active, and Highlight Styles for Original Look --- */
+
+    /* Regular hover style: Dark button, white text */
+    .navigation_bar_content button:hover {
+        background-color: #27292c;
+        color: white;
+        border-radius: 30px;
+    }
+
+    /* Active/Highlight style: Dark button, white text */
+    .navigation_bar_content .active,
+    .navigation_bar_content button.highlight-header {
+        background-color: #27292c;
+        color: #ffffff;
+        box-shadow: inset 0.5px 0.5px 2px rgba(255, 255, 255, 0.338);
+        border-radius: 30px;
+    }
+
+   
+    .navigation_bar_content a {
+        color: inherit;
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────────────────────
+    FOOTER SECTION (Mobile Base)
+───────────────────────────────────────────────────────────────────────────────────────────── */
+.footer {
+    height: fit-content;
+    background-color: #00154e;
+    padding: 30px 0px; /* Reduced vertical padding */
+    margin: 50px auto auto;
+}
+
+.footer_base {
+    width: 90vw; /* Use more of the screen width */
+    margin: auto;
+    padding: 10px; /* Reduced padding */
+}
+
+.footer_content {
+    /* MOBILE GRID: Stack everything vertically or place in 2 columns */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columns for logo/contact and everything else */
+    grid-template-rows: auto;
+    gap: 20px;
+    color: white;
+    font-family: figtree;
+    font-size: 14px; /* Reduced font size for mobile */
+}
+#footer_title h1,
+#footer_made_with h1{
+    font-family: figtree;
+    color: inherit;
+}
+.footer_content h1 {
+    font-size: 18px; /* Reduced heading size */
+}
+
+#footer_logo {
+    grid-column: span 2; /* Full width for the logo at the top center */
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#footer_logo img {
+    width: 100px; /* Smaller logo */
+    padding-top: 0;
+}
+
+#footer_contact {
+    grid-column: span 2; /* Full width */
+    grid-row: 2;
+    text-align: left;
+    order: 2;
+}
+
+#footer_title {
+    grid-column: span 2; /* Full width */
+    grid-row: 3;
+    margin-left: 0; /* Remove left margin */
+    text-align: left;
+    order: 3;
+}
+
+#footer_text {
+    grid-column: span 2; /* Full width */
+    grid-row: 4;
+    margin-left: 0;
+    order: 4;
+}
+
+#footer_made_with {
+    grid-column: 1; /* Left column */
+    grid-row: 5;
+    text-align: left;
+    margin-top: 0;
+    order: 5;
+}
+
+#footer_watermark {
+    grid-column: 2; /* Right column */
+    grid-row: 5;
+    display: flex;
+    justify-content: flex-end; /* Align right */
+    align-items: center;
+    column-gap: 5px;
+    order: 6;
+}
+#footer_watermark img {
+    height: 40px; /* Smaller icons */
+}
+#footer_watermark #ms_word {
+    margin-right: 5px; /* Reduced margin */
+}
+
+#footer_disclaimer {
+    color: rgba(255, 255, 255, 0.208);
+    text-align: left; /* Center disclaimer */
+    margin-right: 0;
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+/* Base link styles */
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+    font-style: italic;
+}
+.footer a:hover {
+    color: #ffffffe9;
+    text-decoration: underline;
+}
+.footer a:visited {
+    color: #ffffff;
+}
+
+/* Keyframe animations (remain the same) */
+@keyframes slideInFromLeft {
+    0% { opacity: 0; transform: translateX(-60px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInFromRight {
+    0% { opacity: 0; transform: translateX(60px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInFromTop {
+    0% { opacity: 0; transform: translateY(-60px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInFromBottom {
+    0% { opacity: 0; transform: translateY(60px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+
+/* --- Tablet/Landscape (min-width: 1024px) --- */
+@media (min-width: 1024px) {
+    .footer {
+        padding: 50px 0px;
+        margin: 70px auto auto;
+    }
+    .footer_base {
+        width: 80vw; /* Restore desktop width */
+        padding: 30px;
+    }
+
+    /* DESKTOP GRID: Revert to the original complex 5x5 grid */
+    .footer_content {
+        grid-template-columns: repeat(5, auto);
+        grid-template-rows: repeat(5, auto);
+        gap: 8px;
+        font-size: 16px;
+    }
+
+    .footer_content h1 {
+        font-size: 24px;        
+    }
+
+    #footer_logo {
+        grid-row: span 2 / span 2;
+        grid-column: 1;
+        justify-content: center;
+        align-items: start;
+        order: initial;
+    }
+    #footer_logo img {
+        width: 150px;
+        padding-top: 20px;
+    }
+
+    #footer_contact {
+        grid-column-start: 1;
+        grid-row-start: 3;
+        text-align: center;
+        order: initial;
+    }
+
+    #footer_title {
+        grid-column: span 4 / span 4;
+        grid-column-start: 2;
+        grid-row-start: 1;
+        margin-left: 60px;
+        order: initial;
+    }
+
+    #footer_text {
+        grid-column: span 3 / span 3;
+        grid-row: span 2 / span 2;
+        grid-column-start: 2;
+        grid-row-start: 2;
+        margin-left: 60px;
+        order: initial;
+    }
+
+    #footer_made_with {
+        grid-column-start: 5;
+        grid-row-start: 2;
+        text-align: left;
+        margin-top: 40px;
+        order: initial;
+    }
+
+    #footer_watermark {
+        grid-column-start: 5;
+        grid-row-start: 3;
+        justify-content: flex-end;
+        align-items: center;
+        column-gap: 10px;
+        order: initial;
+    }
+    #footer_watermark img {
+        height: 70px;
+    }
+    #footer_watermark #ms_word {
+        margin-right: 20px;
+    }
+
+    #footer_disclaimer {
+        text-align: left;
+        margin-right: 30px;
+        margin-top: 30px;
+        font-size: 14px;
+    }
+}

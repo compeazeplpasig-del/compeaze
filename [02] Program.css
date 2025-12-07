@@ -1,0 +1,309 @@
+/* ─────────────────────────────────────────────────────────────────────────────────────────────
+    PROGRAM SECTION (Mobile-First Base)
+───────────────────────────────────────────────────────────────────────────────────────────── */
+
+.program {
+    /* Mobile style: Stacked columns */
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    gap: 30px; /* Space between the context and dropdown columns */
+    width: 90vw; /* Use more screen width */
+    margin: 30px auto 30px auto; /* Reduced margin for mobile */
+    align-items: center; /* Center items when stacked */
+}
+
+/* CONTEXT (Column 1) - Mobile Base */
+.context {
+    flex: 1 1 100%; /* Take full width on mobile */
+    text-align: justify;
+    font-family: "Figtree", sans-serif;
+    max-width: 100%; /* Ensure it doesn't overflow */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 15px; /* Reduced gap */
+
+    /* Animations remain, but timing is adjusted for smaller screens */
+    opacity: 0;
+    transform: translateX(-60px);
+    animation: slideInFromLeft 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* CCS SECTION (Column 2) - Mobile Base */
+.ccs_about {
+    flex: 1 1 100%; /* Take full width on mobile */
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center buttons on mobile */
+    justify-content: flex-start;
+
+    opacity: 0;
+    transform: translateX(60px);
+    animation: slideInFromRight 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 0.1s;
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────────────────────
+    DROPDOWN BUTTONS (Mobile Base)
+───────────────────────────────────────────────────────────────────────────────────────────── */
+
+.ccs_program,
+.mission_vision_goals {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space title & icon evenly */
+    gap: 10px;
+    width: 90%; /* Full width for mobile for easier clicking */
+    padding: 10px 20px; /* Increased padding for mobile hit area */
+    background-color: #001a4d;
+    border-top: 1px solid white;
+    border-radius: 30px;
+    cursor: pointer;
+    text-align: left; /* Align text left when using space-between */
+}
+
+/* Title Text */
+.ccs_program h1,
+.mission_vision_goals h1 {
+    font-family: "Figtree", sans-serif;
+    font-size: 16px; /* Reduced font size */
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0; /* Remove default margin */
+    
+}
+
+.ccs_about,
+.mission_vision_goals {
+  width: 85%;
+}
+
+/* Dropdown Icon */
+.dropdown_icon {
+    font-size: 24px; /* Reduced icon size */
+    color: #ffffffe3;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.ccs_program:hover .dropdown_icon,
+.mission_vision_goals:hover .dropdown_icon {
+    color: #ffffff;
+    transform: scale(1.1);
+}
+.active .dropdown_icon {
+    color: #ffffff;
+}
+.dropdown_icon.active {
+    transform: rotate(180deg);
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────────────────────
+    DROPDOWN CONTENT (Mobile Base)
+───────────────────────────────────────────────────────────────────────────────────────────── */
+
+.dropdown_content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+        max-height 0.5s ease,
+        opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content block on mobile */
+    width: 100%; /* Full width for content block */
+    margin-top: 10px;
+}
+
+.dropdown_content h3, h2{
+    text-align: left; /* Align content titles left */
+}
+
+.dropdown_content.show {
+    max-height: 2000px; /* large enough for mobile content */
+    opacity: 1;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────────────────────
+    DROPDOWN CONTENT STYLES (Mobile Base)
+───────────────────────────────────────────────────────────────────────────────────────────── */
+
+.program_content,
+.mission_vission_goal_content {
+    width: 100%; /* Full width of its container (.dropdown_content) */
+    background-color: #ffffff;
+    color: #000144;
+    font-family: "Figtree", sans-serif;
+    padding: 15px; /* Reduced padding */
+    font-size: 14px; /* Reduced text size */
+    text-align: justify;
+    border-radius: 15px; /* Slightly reduced border radius */
+    animation: fadeIn 0.4s ease;
+}
+
+.program_content h2,
+.mission_vission_goal_content h3 {
+    font-size: 18px; /* Reduced heading size */
+}
+
+/* Mission/Vision List */
+.mission_vission_goal_content ul {
+    margin: 10px 0 0 10px; /* Reduced margin */
+    padding-left: 15px;
+    font-size: 14px;
+    color: #000144;
+    line-height: 1.5;
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────────────────────
+    CONTEXT HEADER & IMAGE (Mobile Base)
+───────────────────────────────────────────────────────────────────────────────────────────── */
+
+#context_title {
+    margin-top: 0; 
+    margin-bottom: 5px;
+    font-size: 70px; /* Drastically reduced size for mobile */
+    font-family: "Figtree", sans-serif;
+    font-weight: bolder;
+    letter-spacing: -1px;
+    /* Gradient styles remain the same */
+    background-image: radial-gradient(
+        circle at 30% 100%,
+        #4c85ff 0%,
+        #00154e 70%,
+        #000144 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.context_image {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: fit-content;
+}
+
+.plp_building {
+    width: 90vw; /* Take full container width */
+    max-width: 400px; /* Cap image size */
+    height: auto;
+}
+
+.program .context p{
+    color: #001a4d;
+    font-size: 16px;
+}
+
+.context_image{
+    opacity: 0;
+    transform: translateY(60px);
+    animation: slideInFromBottom 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 0.2s;
+}
+
+hr {
+    width: 100%;
+    margin: auto;
+    height: 1px; /* Thinner line for mobile */
+    background-color: #000144;
+    border-radius: 20px;
+}
+
+
+/* --- Tablet/Desktop (min-width: 768px) --- */
+@media (min-width: 768px) {
+    
+    .program {
+        /* Restores original two-column layout */
+        flex-direction: row; 
+        gap: 20px; 
+        width: 80vw;
+        margin: 50px auto 50px auto;
+        align-items: flex-start;
+    }
+
+    /* CONTEXT (Column 1) - Desktop */
+    .context {
+        flex: 1;
+        width: 600px; /* Revert to specific width */
+        gap: 20px;
+    }
+
+    /* CCS SECTION (Column 2) - Desktop */
+    .ccs_about {
+        max-width: 600px; /* Revert to specific max width */
+        align-items: flex-end; /* Align buttons to the right */
+    }
+
+    /* Context Header - Desktop */
+    #context_title {
+        font-size: 130px; /* Restore original large size */
+        letter-spacing: -3px;
+    }
+
+    /* Context Image - Desktop */
+    .plp_building {
+        width: 600px; /* Restore original width */
+        max-width: none;
+    }
+
+    .program .context p {
+        font-size: initial; /* Restore default paragraph size */
+    }
+
+    /* Dropdown Buttons - Desktop */
+    .ccs_program,
+    .mission_vision_goals {
+        justify-content: flex-end; /* Restore title & icon to the right */
+        width: 45%; 
+        padding: 5px 30px;
+        text-align: right;
+    }
+
+    .ccs_program h1,
+    .mission_vision_goals h1 {
+        font-size: 20px; /* Restore original font size */
+        margin: 0;
+        padding: 10px 0px;
+        width: fit-content;
+    }
+    
+    .dropdown_icon {
+        font-size: 30px; /* Restore original icon size */
+    }
+
+    /* Dropdown Content - Desktop */
+    .dropdown_content {
+        justify-content: flex-end; /* Align content block to the right */
+        width: 130%; /* Restore original content width */
+    }
+
+    .program_content,
+    .mission_vission_goal_content {
+        width: 70%; /* Matches desktop button relative width */
+        padding: 20px;
+        font-size: 16px;
+        border-radius: 20px;
+    }
+
+    .dropdown_content h3, h2{
+        text-align: right; /* Restore text alignment */
+    }
+
+    hr {
+        height: 2px; /* Restore line thickness */
+    }
+}

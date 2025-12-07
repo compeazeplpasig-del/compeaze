@@ -1,0 +1,329 @@
+/* ---------------------------------------------------
+   GLOBAL CONTENT STYLES
+--------------------------------------------------- */
+.context {
+  width: 80vw;
+  margin: auto;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  gap: 70px;
+  align-items: center;
+
+  /* Animation */
+  opacity: 0;
+  transform: translateY(60px);
+  animation: slideInFromTop 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.1s;
+}
+
+.context p {
+  font-family: figtree;
+  color: #000144;
+  font-size: 16px;
+  text-align: justify;
+  text-indent: 2em;
+}
+
+/* ---------------------------------------------------
+   TITLE
+--------------------------------------------------- */
+#context_title {
+  font-size: 100px;
+  font-family: "Figtree", sans-serif;
+  font-weight: bolder;
+  letter-spacing: -3px;
+  text-align: center;
+
+  /* Gradient Text */
+  background-image: radial-gradient(
+    circle at 30% 100%,
+    #4c85ff 0%,
+    #00154e 70%,
+    #000144 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+#seperator {
+  width: 80vw;
+  margin: auto auto 50px;
+  height: 2px;
+  background-color: #000144;
+  border-radius: 20px;
+
+  animation: expandLine 0.3s ease-out forwards;
+}
+
+
+@keyframes expandLine {
+  0% {
+    width: 0;
+    transform: scaleX(0);
+  }
+  100% {
+    width: 80vw; /* Change this to your desired final width */
+    transform: scaleX(1);
+  }
+}
+
+
+/* ---------------------------------------------------
+   ACTIVITY CATEGORIES
+--------------------------------------------------- */
+.activity_categories {
+  display: flex;
+  justify-content: center; /* ✅ Centers items horizontally */
+  align-items: flex-start;      /* Optional: centers vertically */
+  
+  width: 80vw;
+  font-family: figtree;
+  margin: auto;
+  padding: 30px 50px;
+
+  /* Animation */
+  opacity: 0;
+  transform: translateY(60px);
+  animation: slideInFromBottom 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+
+.activity_categories h1 {
+  font-family: figtree;
+  font-weight: bolder;
+  padding: 10px 0 0;
+  color: #000144;
+}
+
+.activity_categories h2 {
+  color: #030550;
+}
+
+.activity_categories li {
+  font-family: figtree;
+  color: #000144;
+  transition: ease 0.5s;
+}
+
+.activity_categories li:hover {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.activity_categories li{
+  color: #000144;  
+  transition: ease 0.5s;    
+  font-size: 14px;
+  padding: 0px 0px 5px;
+}
+
+/* Ensure links inside list items look like regular text */
+.activity_categories li a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#research_activity_seperator{
+transform: rotate(90deg);
+}
+
+
+/* ---------------------------------------------------
+   CONTENT SECTIONS ANIMATIONS
+--------------------------------------------------- */
+#research_hero {
+  height: 100%;
+  opacity: 0;
+  transform: translateY(60px);
+  animation: slideInFromBottom 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.4s;
+}
+
+.research_content {
+  display: flex;
+  flex-direction: row;
+  opacity: 0;
+  transform: translateX(60px);
+  animation: slideInFromLeft 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+.ms_office_content {
+  display: flex;
+  flex-direction: row;
+  opacity: 0;
+  transform: translateX(60px);
+  animation: slideInFromRight 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+/* ---------------------------------------------------
+   MODAL (Copied from Subjects page)
+--------------------------------------------------- */
+/* --- Modal Background --- */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 9999; /* Keeps it above all other elements */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.6); /* Dim background */
+  backdrop-filter: blur(5px);
+}
+
+/* --- Modal Content --- */
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  margin: auto;
+  width: 95%; 
+  height: 95%;
+  border-radius: 30px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+/* This initial #fileViewer rule is slightly different from the one below, 
+   but it is standard practice in the Subjects file, so it is included. */
+#fileViewer {
+  width: 95%;
+  height: 95%;
+  border: none;
+  transform: scale(0.95);
+  transform-origin: center;
+}
+
+
+/* --- Controls Bar --- */
+.controls {
+  display: flex;
+  justify-content: end;
+  gap: 8px;
+  align-items: center;
+  background: #09003e;
+  color: white;
+  padding: 10px 16px;
+  font-size: 16px;
+}
+
+/* Base button style (for Prev/Next) */
+.controls button {
+  background-color: #312769;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex; /* Ensures icons are aligned */
+  align-items: center;
+  gap: 5px;
+}
+
+.controls button:hover {
+  background-color: #3e3283;
+}
+
+#testBtn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#testBtn:hover {
+  background-color: rgb(98, 192, 101);
+}
+
+#closeBtn {
+  background-color: #e53935;
+  color: white;
+}
+
+#closeBtn:hover {
+  background-color: rgb(152, 38, 38);
+}
+
+/* --- Iframe Viewer --- */
+#fileViewer {
+  flex-grow: 1;
+  width: 100%;
+  border: none;
+}
+
+/* ──────────────────────────────────────────────────────────────
+    BREAKPOINT 1: TABLET / SMALL DESKTOP (min-width: 768px)
+────────────────────────────────────────────────────────────── */
+@media (min-width: 768px) {
+    .context {
+        width: 90vw;
+        max-width: 1000px;
+    }
+    
+    #context_title {
+        font-size: 80px;
+        letter-spacing: -2.5px;
+    }
+
+    .context p {
+        text-indent: 1em; /* Add slight indent back */
+    }
+    
+    .activity_categories {
+        width: 90vw;
+        max-width: 1000px;
+        flex-direction: row; /* Switch to side-by-side display */
+        justify-content: space-around;
+        gap: 30px;
+    }
+
+    #research_activity_seperator {
+        display: block; 
+        transform: rotate(90deg);
+        height: 1px;
+        width: 50px;
+    }
+}
+
+/* ──────────────────────────────────────────────────────────────
+    BREAKPOINT 2: LARGE DESKTOP (min-width: 1024px)
+────────────────────────────────────────────────────────────── */
+@media (min-width: 1024px) {
+    .context {
+        width: 80vw;
+        max-width: 1200px;
+        flex-direction: row; /* Restore horizontal layout */
+        gap: 70px;
+    }
+    
+    #context_title {
+        font-size: 100px; /* Restore original large size */
+        letter-spacing: -3px;
+        text-align: left;
+    }
+
+    .context p {
+        text-align: justify;
+        text-indent: 2em; /* Restore original indent */
+    }
+    
+    .activity_categories {
+        width: 80vw;
+        max-width: 1200px;
+        gap: 50px; 
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    #research_activity_seperator {
+        display: block;
+        transform: rotate(90deg);
+    }
+}

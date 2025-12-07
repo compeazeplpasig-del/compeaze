@@ -1,0 +1,230 @@
+/* ------------------------------------- */
+/*  GLOBAL TYPOGRAPHY                   */
+/* ------------------------------------- */
+#main_seperator {
+  width: 80vw;
+  margin: auto auto 50px;
+  height: 2px;
+  background-color: #000144;
+  border-radius: 20px;
+
+  animation: expandLine 0.3s ease-out forwards;
+}
+
+@keyframes expandLine {
+  0% {
+    width: 0;
+    transform: scaleX(0);
+  }
+  100% {
+    width: 80vw; /* Change this to your desired final width */
+    transform: scaleX(1);
+  }
+}
+.context{
+  opacity: 0;
+  transform: translateY(60px);
+  animation: slideInFromTop 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.1s;
+}
+
+.guide_content{
+  opacity: 0;
+  transform: translateY(60px);
+  animation: slideInFromBottom 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.1s;
+}
+
+.step{
+  opacity: 0;
+  transform: translateY(60px);
+  animation: slideInFromRight 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.2s;
+}
+#context_title {
+  font-size: 100px;
+  font-family: "Figtree", sans-serif;
+  font-weight: bolder;
+  text-align: center;
+  padding-bottom: 20px;
+
+  background-image: radial-gradient(
+    circle at 30% 100%,
+    #4c85ff 0%,
+    #00154e 70%,
+    #000144 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.context p {
+  font-family: "Figtree", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  margin-top: -10px;
+}
+
+.context{
+  margin-bottom: 20px;
+  padding: 30px;
+}
+
+.content {
+  width: 85vw;
+  margin: auto;
+}
+
+.content h1 {
+  font-family: "Figtree", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: #000144;
+}
+
+#guide_content_title{
+  font-size: 60px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: #000144;
+}
+
+#guide_content_title,
+#guide_content_context{
+  margin: auto;
+  width: 80vw;
+  text-align: center;
+}
+
+
+/* ------------------------------------- */
+/*  MS OFFICE INSTALLATION SECTION       */
+/* ------------------------------------- */
+.guide_main_content {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 30px;
+}
+
+
+.step {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap:5px;
+  width: fit-content;
+}
+
+
+.image img {
+  width: auto;
+  height: 300px;     
+  border-radius: 10px;
+}
+
+
+.step .image {
+  margin-top: auto;   /* <-- pushes image to bottom */
+}
+.step-interactives{
+  margin-bottom: 20px;
+  height: 40px;
+  cursor: pointer;
+  width: fit-content;
+  border-radius: 20px;
+}
+
+
+#call_to_action a{
+  color: inherit;
+  text-decoration: none;
+  font-weight: 700;
+}
+#call_to_action a:visited{
+  color: inherit;
+}
+
+.copy-script {
+  width: fit-content;
+  border: none;
+
+  font-weight: 500;
+  color: white;
+  background: #00154e;
+
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+
+  font-family: monospace;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+
+}
+
+.copied-message {
+  display: none;
+  margin-left: 10px;
+  color: rgb(0, 98, 227);
+  font-weight: 600;
+  font-family: Figtree, sans-serif;
+}
+
+
+/* ------------------------------------- */
+/*  CTA BUTTON                           */
+/* ------------------------------------- */
+
+#call_to_action {
+  width: fit-content;
+  border: none;
+
+  font-weight: 500;
+  color: white;
+  background: #00154e;
+
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+
+  font-family: figtree;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+}
+
+#call_to_action a{
+  color: inherit;
+  text-decoration: none;
+  font-weight: 700;
+}
+#call_to_action a:visited{
+  color: inherit;
+}
+
+.guide_content,
+.guide_main_content{
+  font-family: figtree;
+  margin-bottom: 20vh;
+}
+
+.step-interactives {
+  display: flex;
+  align-items: center; /* This centers the items vertically */
+  gap: 15px; /* This adds a small gap between the button and the script */
+  margin-top: 10px; /* Optional: Adds a little vertical space above the elements */
+}
+
+#footer_text h1{
+  color: white;
+}

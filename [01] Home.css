@@ -1,0 +1,319 @@
+/* ──────────────────────────────────────────────────────────────
+    SECTION: HOME SECTION STYLING (Mobile-First Base)
+    TARGET: PHONES (e.g., 360x800, 390x844, 393x873)
+────────────────────────────────────────────────────────────── */
+.home {
+    height: 60vh; /* Reduced height for mobile to see content sooner */
+    padding-top: 10vh; /* Add some space below the header */
+    text-align: center;
+}
+
+.home h1 {
+    margin-bottom: 0;
+    font-size: 60px; /* Base font size for phones */
+    font-family: "Figtree", sans-serif;
+    font-weight: bolder;
+    letter-spacing: -1px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: radial-gradient(
+        circle at 60% 20%,
+        #4c85ff 0%,
+        #00154e 70%,
+        #000144 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.home p {
+    font-size: 18px; /* Base paragraph size */
+    font-family: "Figtree", sans-serif;
+    font-weight: 600;
+    color: #000144;
+    padding: 0 10px; /* Add horizontal padding to prevent text overflow */
+}
+
+/* ──────────────────────────────────────────────────────────────
+    SECTION: CALL TO ACTION BUTTON (Base)
+────────────────────────────────────────────────────────────── */
+#call_to_action {
+    border: none;
+    border-radius: 50px;
+    padding: 15px 30px; /* Base padding for phones */
+
+    background-image: radial-gradient(
+        circle at 50% -50%,
+        #83b2e7 0%,
+        #4c85ff 20%,
+        #00154e 80%
+    );
+
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 18px; /* Base font size for phones */
+    font-weight: 500;
+    cursor: pointer;
+
+    background-size: 200% 200%;
+    transition: background-position 1s ease-in-out, transform 0.3s ease;
+}
+
+#call_to_action:hover {
+    background-position: 100% 100%;
+    transform: scale(1.01);
+    font-weight: bolder;
+}
+
+
+/* ──────────────────────────────────────────────────────────────
+    SECTION: CONTEXT SECTIONS (Base)
+────────────────────────────────────────────────────────────── */
+.context{
+    width: 60vw; /* Use 90% of screen width for mobile */
+    margin: auto;
+}
+
+.context_content{
+    padding: 10px; 
+    font-size: 16px;
+    font-family: Figtree;
+    text-align: center;
+    background-color: #000144;
+    color: #ffffff;
+    border-radius: 50px;
+}
+
+.context_content button{
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    font-family: Figtree;
+    font-weight: 900;
+    cursor: pointer;
+    padding: 0;
+    color: white;
+}
+
+/* Link styles */
+.context_content a{
+    text-decoration: none;
+    color: white;
+}
+.context_content a:visited {
+    color: inherit;  
+}
+
+/* ──────────────────────────────────────────────────────────────
+    SECTION: BACKGROUND IMAGES (Base)
+    Image sizing is relative for mobile screens.
+────────────────────────────────────────────────────────────── */
+.background_images {
+    position: absolute;
+    top: -20px;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+}
+
+.background_images img {
+    /* Base image size for mobile screens */
+    max-width: 45%; 
+    top: 5vh; 
+    /* ... (rest of image styles remain the same) ... */
+    opacity: 0;
+    transform: translate(var(--from-x, 0), var(--from-y, 0)) scale(0.95);
+    filter: blur(20px);
+    pointer-events: none;
+
+    transition:
+        opacity 1.1s ease-in-out,
+        transform 1.1s cubic-bezier(0.25, 1, 0.5, 1),
+        filter 0.8s ease-in-out;
+}
+
+#call_to_action:hover ~ .background_images img {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+    filter: blur(0);
+    transition-duration: 1.1s;
+}
+
+#call_to_action:not(:hover) ~ .background_images img {
+    opacity: 0;
+    transform: translate(var(--from-x, 0), var(--from-y, 0)) scale(0.95);
+    filter: blur(15px);
+    transition-duration: 0.5s;  
+    transition-timing-function: ease-in;
+}
+
+/* Image positions */
+#background_left {
+    top: 5vh; 
+    left: -10vw; 
+    width: 45%;
+    --from-x: 100px; 
+    --from-y: 50px;
+}
+
+#background_right {
+    bottom: 5vh; 
+    right: -10vw;
+    width: 45%;
+    --from-x: -100px;
+    --from-y: 50px;
+}
+
+
+/* ──────────────────────────────────────────────────────────────
+    SECTION: NAVIGATION HIGHLIGHT (Base)
+────────────────────────────────────────────────────────────── */
+.navigation_bar_content button.highlight-header {  
+    background-color: #27292c83 !important;
+    color: #ffffff;
+    box-shadow: inset 0.5px 0.5px 2px rgba(255, 255, 255, 0.338);
+}
+.navigation_bar_content button.highlight-header a {
+    color: #ffffff;
+}
+
+/* Entrance animation (Base) */
+#home_title,
+#home_paragraph,
+#call_to_action{
+    opacity: 0;
+    animation: slideInFromBottom 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 1s;
+}
+
+@keyframes slideInFromBottom {
+    0% { opacity: 0; transform: translateY(120px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ──────────────────────────────────────────────────────────────
+    BREAKPOINT 1: TABLET / SMALL DESKTOP (min-width: 768px)
+    TARGET: 768x1024, 810x1080, 820x1180, 1366x768
+────────────────────────────────────────────────────────────── */
+@media (min-width: 768px) {
+    /* Scale main elements up slightly for readability on tablets */
+    .home h1 {
+        font-size: 100px; 
+        letter-spacing: -2px;
+    }
+    .home p {
+        font-size: 20px; 
+    }
+    #call_to_action {
+        padding: 18px 35px;
+        font-size: 20px;
+    }
+
+    /* Adjust background images for tablet view */
+    .background_images img {
+        max-width: 35%; /* Slightly smaller relative size for tablets */
+    }
+
+    #background_left {
+        top: 10vh;
+        left: 5vw;
+        --from-x: 120px;
+        --from-y: 70px;
+    }
+    #background_right {
+        bottom: 10vh;
+        right: 5vw;
+        --from-x: -120px;
+        --from-y: 70px;
+    }
+    
+    .context {
+        width: 85vw; /* Slightly wider use of space on tablets */
+    }
+
+}
+
+/* ──────────────────────────────────────────────────────────────
+    BREAKPOINT 2: LARGE DESKTOP (min-width: 1024px)
+    TARGET: 1536x864, 1920x1080
+────────────────────────────────────────────────────────────── */
+@media (min-width: 1024px) {
+    .home {
+        height: 80vh; /* Restore original height */
+        padding-top: 0;
+    }
+    
+    .home h1 {
+        font-size: 140px; /* Restore original large font size */
+        letter-spacing: -3px;
+    }
+
+    .home p {
+        font-size: 22px; /* Restore original paragraph size */
+    }
+
+    #call_to_action {
+        padding: 20px 40px; /* Restore original button size */
+        font-size: 24px;
+    }
+
+    .context{
+        width: fit-content; /* Restore original width */
+        max-width: 1000px; /* Set a max-width for extreme resolutions like 1920px */
+        padding: 20vh 0px 0px;
+    }
+
+    .context_content{
+        padding: 20px 50px;
+        background-color: #000144;
+    }
+
+    .context_content p{
+        text-align: justify;
+    }
+
+/* Restore original desktop background image design exactly */
+.background_images {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+}
+
+.background_images img {
+    position: absolute;
+    width: 40%;       /* original */
+    max-width: 40%;   /* keep consistent */
+    opacity: 0;
+    transform: translate(var(--from-x, 0), var(--from-y, 0)) scale(0.95);
+    filter: blur(20px);
+    pointer-events: none;
+    transition:
+        opacity 1.1s ease-in-out,
+        transform 1.1s cubic-bezier(0.25, 1, 0.5, 1),
+        filter 0.8s ease-in-out;
+}
+
+#background_left {
+    top: 0;       /* original */
+    left: 0;      /* original */
+    width: 40%;   /* original */
+    --from-x: 150px;
+    --from-y: 100px;
+}
+
+#background_right {
+    bottom: 0;     /* original */
+    right: 0;      /* original */
+    width: 40%;    /* original */
+    --from-x: -150px;
+    --from-y: 100px;
+}
+}
